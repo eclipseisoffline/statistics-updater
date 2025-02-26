@@ -1,7 +1,7 @@
 # Statistics Updater
 
 [![Discord Badge](https://img.shields.io/badge/chat-discord-%235865f2)](https://discord.gg/CNNkyWRkqm)
-[![Github Badge](https://img.shields.io/badge/github-statistics-updater-white?logo=github)](https://github.com/eclipseisoffline/statistics-updater)
+[![Github Badge](https://img.shields.io/badge/github-statistics--updater-white?logo=github)](https://github.com/eclipseisoffline/statistics-updater)
 ![GitHub License](https://img.shields.io/github/license/eclipseisoffline/statistics-updater)
 
 This mod extends the `/scoreboard` command to add functionality for updating scoreboards that use statistics criteria.
