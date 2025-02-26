@@ -4,18 +4,27 @@
   "version": "${version}",
   "name": "Statistics Updater",
   "description": "",
-  "authors": [],
-  "contact": {},
+  "authors": [
+    {
+      "name": "eclipseisoffline",
+      "contact": {
+        "homepage": "https://github.com/eclipseisoffline"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/statistics-updater",
+    "issues": "https://github.com/eclipseisoffline/statistics-updater/issues",
+    "sources": "https://github.com/eclipseisoffline/statistics-updater"
+  },
   "license": "MIT",
   "icon": "assets/statisticsupdater/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [],
     "main": [
       "xyz.eclipseisoffline.statisticsupdater.StatisticsUpdater"
     ]
   },
-  "mixins": [],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
