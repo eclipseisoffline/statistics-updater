@@ -29,5 +29,14 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.donate": "https://buymeacoffee.com/eclipseisoffline",
+        "modmenu.buymeacoffee": "https://buymeacoffee.com/eclipseisoffline",
+        "modmenu.modrinth": "https://modrinth.com/mod/statistics-updater"
+      }
+    }
   }
 }
