@@ -3,7 +3,7 @@
   "id": "statisticsupdater",
   "version": "${version}",
   "name": "Statistics Updater",
-  "description": "",
+  "description": "Extends the /scoreboard command to add functionality for updating scoreboards that use statistics criteria",
   "authors": [
     {
       "name": "eclipseisoffline",
