@@ -81,6 +81,6 @@ publishMods {
     github {
         accessToken = providers.gradleProperty("GITHUB_API_PUBLISH_TOKEN")
         repository = "eclipseisoffline/statistics-updater"
-        commitish = "main"
+        commitish = "1.21"
     }
 }
