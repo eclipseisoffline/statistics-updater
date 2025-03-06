@@ -1,5 +1,8 @@
 # Statistics Updater
 
+[![Modrinth Version](https://img.shields.io/modrinth/v/sw5IYd9j?logo=modrinth&color=008800)](https://modrinth.com/mod/statistics-updater)
+[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/sw5IYd9j?logo=modrinth&color=008800)](https://modrinth.com/mod/statistics-updater)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/sw5IYd9j?logo=modrinth&color=008800)](https://modrinth.com/mod/statistics-updater)
 [![Discord Badge](https://img.shields.io/badge/chat-discord-%235865f2)](https://discord.gg/CNNkyWRkqm)
 [![Github Badge](https://img.shields.io/badge/github-statistics--updater-white?logo=github)](https://github.com/eclipseisoffline/statistics-updater)
 ![GitHub License](https://img.shields.io/github/license/eclipseisoffline/statistics-updater)
@@ -23,6 +26,7 @@ For support and/or any questions you may have, feel free to join [my discord](ht
 | Minecraft Version | Status       |
 |-------------------|--------------|
 | 1.21.4            | ✅ Current    |
+| 1.21.1            | ✅ Current    |
 
 I try to keep support up for the latest major and latest minor release of Minecraft. Updates to newer Minecraft
 versions may be delayed from time to time, as I do not always have the time to immediately update my mods.
