@@ -1,6 +1,8 @@
+import me.modmuss50.mpp.ReleaseType
+
 plugins {
+    id 'me.modmuss50.mod-publish-plugin' version '0.8.4'
     id 'fabric-loom' version '1.9-SNAPSHOT'
-    id 'maven-publish'
 }
 
 version = project.mod_version
@@ -63,12 +65,22 @@ jar {
     }
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
+publishMods {
+    changelog = new File("CHANGELOG.md").text
+    type = ReleaseType.of(release_type)
+
+    file = remapJar.archiveFile
+    modLoaders.add("fabric")
+
+    modrinth {
+        accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
+        projectId = "sw5IYd9j"
+        minecraftVersions.addAll(release_minecraft_versions.split(","))
     }
 
-    repositories {}
+    github {
+        accessToken = providers.gradleProperty("GITHUB_API_PUBLISH_TOKEN")
+        repository = "eclipseisoffline/statistics-updater"
+        commitish = "main"
+    }
 }
