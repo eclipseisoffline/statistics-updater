@@ -25,7 +25,8 @@ For support and/or any questions you may have, feel free to join [my discord](ht
 
 | Minecraft Version | Status       |
 |-------------------|--------------|
-| 1.21.4            | ✅ Current    |
+| 1.21.5            | ✅ Current    |
+| 1.21.4            | ✔️ Available |
 | 1.21.1            | ✅ Current    |
 
 I try to keep support up for the latest major and latest minor release of Minecraft. Updates to newer Minecraft
