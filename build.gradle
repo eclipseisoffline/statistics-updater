@@ -86,6 +86,10 @@ publishing {
     }
 }
 
+publish {
+    dependsOn(publishMods)
+}
+
 publishMods {
     changelog = new File("CHANGELOG.md").text
     type = ReleaseType.of(release_type)
