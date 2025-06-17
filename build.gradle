@@ -87,7 +87,7 @@ publishing {
 }
 
 publish {
-    dependsOn(publishMods)
+    dependsOn("publishMods")
 }
 
 publishMods {
