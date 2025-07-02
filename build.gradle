@@ -101,6 +101,11 @@ publishMods {
         accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
         projectId = "sw5IYd9j"
         minecraftVersions.addAll(release_minecraft_versions.split(","))
+
+        // Fabric API
+        requires {
+            slug = "P7dR8mSH"
+        }
     }
 
     github {
