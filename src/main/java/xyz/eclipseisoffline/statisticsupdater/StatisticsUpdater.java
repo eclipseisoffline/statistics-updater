@@ -16,7 +16,8 @@ import net.minecraft.commands.arguments.ObjectiveArgument;
 import net.minecraft.commands.arguments.ScoreHolderArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.players.GameProfileCache;
+import net.minecraft.server.players.NameAndId;
+import net.minecraft.server.players.UserNameToIdResolver;
 import net.minecraft.stats.ServerStatsCounter;
 import net.minecraft.stats.Stat;
 import net.minecraft.world.level.storage.LevelResource;
@@ -44,8 +45,7 @@ public class StatisticsUpdater implements ModInitializer {
                                                     }
 
                                                     MinecraftServer server = context.getSource().getServer();
-                                                    GameProfileCache profileCache = server.getProfileCache();
-                                                    assert profileCache != null;
+                                                    UserNameToIdResolver profileCache = server.services().nameToIdCache();
 
                                                     Scoreboard scoreboard = objective.getScoreboard();
                                                     Map<UUID, ServerStatsCounter> stats = getPlayerStats(server);
@@ -58,6 +58,7 @@ public class StatisticsUpdater implements ModInitializer {
                                                         }
 
                                                         ScoreHolder scoreHolder = profileCache.get(uuid)
+                                                                .map(nameAndId -> new GameProfile(nameAndId.id(), nameAndId.name()))
                                                                 .map(ScoreHolder::fromGameProfile)
                                                                 .orElseGet(() -> {
                                                                     missingPlayers.incrementAndGet();
@@ -85,12 +86,11 @@ public class StatisticsUpdater implements ModInitializer {
                                         .then(Commands.argument("player", ScoreHolderArgument.scoreHolder())
                                                 .executes(context -> {
                                                     MinecraftServer server = context.getSource().getServer();
-                                                    GameProfileCache profileCache = server.getProfileCache();
-                                                    assert profileCache != null;
+                                                    UserNameToIdResolver profileCache = server.services().nameToIdCache();
 
                                                     ScoreHolder scoreHolder = ScoreHolderArgument.getName(context, "player");
                                                     UUID uuid = profileCache.get(scoreHolder.getScoreboardName())
-                                                            .map(GameProfile::getId)
+                                                            .map(NameAndId::id)
                                                             .orElseThrow(() -> new SimpleCommandExceptionType(Component.literal("No UUID could be found for the given player")).create());
 
                                                     ServerStatsCounter stats = getPlayerStats(server).get(uuid);
