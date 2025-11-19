@@ -33,7 +33,7 @@ public class StatisticsUpdater implements ModInitializer {
     public void onInitialize() {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->dispatcher.register(
                 Commands.literal("scoreboard")
-                        .requires(source -> source.hasPermission(2))
+                        .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                         .then(Commands.literal("objectives")
                                 .then(Commands.literal("update")
                                         .then(Commands.argument("objective", ObjectiveArgument.objective())
@@ -127,7 +127,7 @@ public class StatisticsUpdater implements ModInitializer {
         for (File statsFile : statsFiles) {
             UUID uuid = UUID.fromString(statsFile.getName().replace(".json", ""));
 
-            ServerStatsCounter playerStat = new ServerStatsCounter(server, statsFile);
+            ServerStatsCounter playerStat = new ServerStatsCounter(server, statsFile.toPath());
             statsCounters.put(uuid, playerStat);
         }
 
