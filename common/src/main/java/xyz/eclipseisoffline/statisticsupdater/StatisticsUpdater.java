@@ -1,6 +1,7 @@
 package xyz.eclipseisoffline.statisticsupdater;
 
 import com.mojang.authlib.GameProfile;
+import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import java.io.File;
 import java.util.HashMap;
@@ -9,8 +10,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.mojang.logging.LogUtils;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.ObjectiveArgument;
 import net.minecraft.commands.arguments.ScoreHolderArgument;
@@ -26,12 +26,12 @@ import net.minecraft.world.scores.ScoreHolder;
 import net.minecraft.world.scores.Scoreboard;
 import org.slf4j.Logger;
 
-public class StatisticsUpdater implements ModInitializer {
+public abstract class StatisticsUpdater {
+    public static final String MOD_ID = "statisticsupdater";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    @Override
-    public void onInitialize() {
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->dispatcher.register(
+    protected void registerCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
+        dispatcher.register(
                 Commands.literal("scoreboard")
                         .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                         .then(Commands.literal("objectives")
@@ -112,7 +112,7 @@ public class StatisticsUpdater implements ModInitializer {
                                         )
                                 )
                         )
-        ));
+        );
     }
 
     private Map<UUID, ServerStatsCounter> getPlayerStats(MinecraftServer server) {

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "statisticsupdater",
+  "id": "${mod_id}",
   "version": "${version}",
-  "name": "Statistics Updater",
-  "description": "Extends the /scoreboard command to add functionality for updating scoreboards that use statistics criteria",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
   "authors": [
     {
       "name": "eclipseisoffline",
@@ -13,22 +13,22 @@
     }
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/statistics-updater",
-    "issues": "https://github.com/eclipseisoffline/statistics-updater/issues",
-    "sources": "https://github.com/eclipseisoffline/statistics-updater"
+    "website": "https://modrinth.com/mod/${modrinth_id}",
+    "issues": "https://github.com/eclipseisoffline/${github_repository}/issues",
+    "sources": "https://github.com/eclipseisoffline/${github_repository}"
   },
   "license": "MIT",
   "icon": "assets/statisticsupdater/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "xyz.eclipseisoffline.statisticsupdater.StatisticsUpdater"
+      "xyz.eclipseisoffline.statisticsupdater.fabric.StatisticsUpdaterFabric"
     ]
   },
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "fabric": "*",
-    "minecraft": "${supported_versions}"
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "minecraft": "${minecraft_version}"
   },
   "custom": {
     "modmenu": {
