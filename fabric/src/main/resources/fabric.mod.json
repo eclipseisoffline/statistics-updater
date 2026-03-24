@@ -13,7 +13,7 @@
     }
   ],
   "contact": {
-    "website": "https://modrinth.com/mod/${modrinth_id}",
+    "homepage": "https://modrinth.com/mod/${modrinth_id}",
     "issues": "https://github.com/eclipseisoffline/${github_repository}/issues",
     "sources": "https://github.com/eclipseisoffline/${github_repository}"
   },
@@ -35,7 +35,7 @@
       "links": {
         "modmenu.donate": "https://buymeacoffee.com/eclipseisoffline",
         "modmenu.buymeacoffee": "https://buymeacoffee.com/eclipseisoffline",
-        "modmenu.modrinth": "https://modrinth.com/mod/statistics-updater"
+        "modmenu.modrinth": "https://modrinth.com/mod/${modrinth_id}"
       }
     }
   }
